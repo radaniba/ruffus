@@ -97,7 +97,7 @@ pygments_style = 'sphinx'
 # The style sheet to use for HTML and HTML Help pages. A file of that name
 # must exist either in Sphinx' static/ path, or in one of the custom paths
 # given in html_static_path.
-html_style = 'ruffus.css'
+#html_style = 'ruffus.css'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
@@ -130,7 +130,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['static_data']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -236,4 +236,27 @@ pdf_stylesheets = ['sphinx','kerning','a4']
 
 # If false, no coverpage is generated.
 #pdf_use_coverpage = True
+
+
+# -- Options for the edit_on_github extension ----------------------------------------
+
+extensions += ['ruffus._edit_on_github']
+
+# Don't import the module as "version" or it will override the
+# "version" configuration parameter
+#import ruffus.ruffus_version
+edit_on_github_project = "jakebiesinger/ruffus"
+#if 'dev' in versionmod.version:
+#    edit_on_github_branch = "master"
+#else:
+#    edit_on_github_branch = "v" + versionmod.version
+#    ruffus.ruffus_version.__version
+edit_on_github_branch = 'master'
+edit_on_github_source_root = ""
+edit_on_github_doc_root = "doc"
+
+html_context = dict(edit_on_github_project=edit_on_github_project,
+                    edit_on_github_branch=edit_on_github_branch,
+                    edit_on_github_doc_root=edit_on_github_doc_root,
+                    edit_on_github_source_root=edit_on_github_source_root)
 

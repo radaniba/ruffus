@@ -1,7 +1,21 @@
 {% extends "!layout.html" %}
+{{ super() }}
+
+{% block sidebarsourcelink %}    
+    {%- if show_source and has_source and sourcename %}
+        <h3>{{ _('This Page') }}</h3>
+        <ul class="this-page-menu">
+          <li><a href="http://github.com/{{ edit_on_github_project }}/blob/{{ edit_on_github_branch }}/{{ edit_on_github_doc_root }}/{{ pagename }}.rst"
+                 title="View on GitHub"
+                 rel="nofollow">{{ _('Show Source') }}</a></li>
+          <li><a href="http://github.com/{{ edit_on_github_project }}/edit/{{ edit_on_github_branch }}/{{ edit_on_github_doc_root }}/{{ pagename }}.rst"
+                 title="Edit on GitHub (404 if not logged in)"
+                 rel="nofollow">{{ _('Edit This Page') }}</a></li>
+        </ul>
+    {%- endif %}
+{% endblock %}
 
 {% block sidebarsearch %}
-    {{ super() }}
     <h3> Quick Reference:</h3>
     <ul>
         <ul>
